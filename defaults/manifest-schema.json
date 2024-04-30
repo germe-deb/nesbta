@@ -1,0 +1,64 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "manifest-schema.json",
+    "title": "BTA Texture Pack Manifest",
+    "description": "The manifest for a BTA texture pack.",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "description": {
+            "description": "Fields that describe the texture pack.",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "description": "The name of the texture pack.",
+                    "type": "string"
+                },
+                "line1": {
+                    "description": "The first line of the texture pack description.",
+                    "type": "string"
+                },
+                "line2": {
+                    "description": "The second line of the texture pack description.",
+                    "type": "string"
+                },
+                "packVersion": {
+                    "description": "The version of the texture pack.",
+                    "type": "string"
+                },
+                "format": {
+                    "description": "The format of the texture pack.",
+                    "type": "number"
+                },
+                "numBackgrounds": {
+                    "description": "The number of main menu backgrounds the pack provides.",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "name",
+                "packVersion",
+                "format"
+            ]
+        },
+        "variants": {
+            "description": "The mob skin variants the pack provides.",
+            "type": "object",
+            "additionalProperties": {
+                "description": "The variants for a given entity.",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "numSkins": {
+                        "description": "The number of skins the entity has.",
+                        "type": "number"
+                    }
+                }
+            }
+        }
+    },
+    "required": [
+        "description"
+    ]
+}
